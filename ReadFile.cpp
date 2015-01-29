@@ -12,9 +12,11 @@ ReadFile::ReadFile(const char* file_name)
 ReadFile::~ReadFile()
 {
    close();
+   /*
    delete input_file;
-   delete closed;
-   delete _eof;
+   delete[] closed;
+   delete[] _eof;
+   */
 }
 
 bool ReadFile::eof()

@@ -7,7 +7,7 @@
 int main()
 {
    ReadFile* rf = new ReadFile("cds.txt");
-   WriteFile* wf = new WriteFile("out.txt");
+   Write* wf = new Write("out.txt");
 
    while(!rf->eof())
    {
