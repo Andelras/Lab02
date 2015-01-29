@@ -1,33 +1,33 @@
 #include "WriteFile.h"
 #include <sstream>
 
-WriteFile* createWriteFile(const char* file_name)
+Write::Write(const char* file_name);
 {
-   WriteFile* wf = new WriteFile;
-   wf->output_file.open(file_name);
-   wf->closed = false;
-   return wf;
+   Write* w = new Write;
+   w->output_file.open(file_name);
+   w->closed = false;
+   return w;
 }
 
-void destroyWriteFile(WriteFile* wf)
+Write::~Write() //calls the desctructor from the class in the header file to get rid of the file created
 {
-   close(wf);
-   delete wf;
+   close(w);
+   delete w;
 }
 
-void close(WriteFile* wf)
+Write::void close(Write* w) //closes out the file so that no new information can be added to it
 {
-   if (!wf->closed)
+   if (!w->closed)
    {
-      wf->output_file.close();
-      wf->closed = true;
+      w->output_file.close();
+      w->closed = true;
    }
 }
 
-void writeLine(WriteFile* wf, String* line)
+Write::void writeLine(Write* w, String* line)//allows the file to be written in and the data within edited
 {
-   if (!wf->closed && line->length() > 0)
+   if (!w->closed && line->length() > 0)//makes sure that the file is open for editing and there is room to make changes
    {
-      wf->output_file << line->getText() << endl;
+      w->output_file << line->getText() << endl; // pulls the changes from the input and adds them to the file
    }
 }
