@@ -15,7 +15,7 @@ Write::~Write(); //calls the desctructor from the class in the header file to ge
    delete w;
 }
 
-Write::void close(); //closes out the file so that no new information can be added to it
+void Write:: close(); //closes out the file so that no new information can be added to it
 {
    if (!w->closed)
    {
@@ -24,7 +24,7 @@ Write::void close(); //closes out the file so that no new information can be add
    }
 }
 
-Write::void writeLine(String* line);//allows the file to be written in and the data within edited
+void Write:: writeLine(String* line);//allows the file to be written in and the data within edited
 {
    if (!w->closed && line->length() > 0)//makes sure that the file is open for editing and there is room to make changes
    {
