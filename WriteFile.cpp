@@ -10,7 +10,7 @@ Write::Write(const char* file_name)
 Write::~Write() //calls the desctructor from the class in the header file to get rid of the file created
 {
    close();
-   delete [];
+   //delete[]; supposed to delete the line of text
 }
 
 void Write:: close() //closes out the file so that no new information can be added to it
