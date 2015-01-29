@@ -13,7 +13,7 @@ private:
    bool closed;
 public:
    Write(const char* file_name);	//constructor to create a new file
-   ~Write(); //destructor to get rid of unneccessary files
+   ~Write(); //destructor to get rid of unnecessary files
    void close(Write* w); //closes out the file after editions have been made
    void writeLine(Write* w, String* line); // where the actual editing of the line happens
 };
