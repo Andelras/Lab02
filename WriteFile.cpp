@@ -1,7 +1,7 @@
 #include "WriteFile.h"
 #include <sstream>
 
-Write::Write(const char* file_name);
+Write::Write(const char* file_name)
 {
    Write* w = new Write;
    w->output_file.open(file_name);
@@ -9,13 +9,13 @@ Write::Write(const char* file_name);
    return w;
 }
 
-Write::~Write(); //calls the desctructor from the class in the header file to get rid of the file created
+Write::~Write() //calls the desctructor from the class in the header file to get rid of the file created
 {
    close(w);
    delete w;
 }
 
-void Write:: close(); //closes out the file so that no new information can be added to it
+void Write:: close() //closes out the file so that no new information can be added to it
 {
    if (!w->closed)
    {
@@ -24,7 +24,7 @@ void Write:: close(); //closes out the file so that no new information can be ad
    }
 }
 
-void Write:: writeLine(String* line);//allows the file to be written in and the data within edited
+void Write:: writeLine(String* line)//allows the file to be written in and the data within edited
 {
    if (!w->closed && line->length() > 0)//makes sure that the file is open for editing and there is room to make changes
    {
